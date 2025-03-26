@@ -39,14 +39,14 @@ The server responds with an XML-formatted result:
 </methodResponse>
 ```
 
-### 🔹 **Common Uses of XML-RPC:**  
+###  **Common Uses of XML-RPC:**  
 - WordPress and other CMS platforms use it for remote management.  
 - Used in older APIs before REST and GraphQL became popular.  
 - Communication between different systems in distributed applications.  
 
-### 🔹 **Security Risks & Hardening:**  
+###  **Security Risks & Hardening:**  
 XML-RPC can be exploited in various ways, especially in WordPress, where attackers use it for **brute-force attacks** or **DDoS via pingbacks**.  
-#### 🔸 Hardening Tips:  
+####  Hardening Tips:  
 - **Disable XML-RPC if not needed** (especially in WordPress).  
 - **Use a Web Application Firewall (WAF)** to filter requests.  
 - **Rate-limit XML-RPC requests** to prevent abuse.  
@@ -102,7 +102,7 @@ An attacker can use a single request to test multiple username/password combinat
 </methodCall>
 ```
 
-### 🛡 **Mitigation:**  
+###  **Mitigation:**  
 - Disable XML-RPC if not needed (`remove_action('wp_head', 'rsd_link');`).  
 - Use **fail2ban** to detect and block brute-force attempts.  
 - Install WordPress security plugins like **Wordfence** to block XML-RPC attacks.  
@@ -417,31 +417,5 @@ In `functions.php`:
 ```php
 add_filter('xmlrpc_enabled', '__return_false');
 ```
-
-### **Block XML-RPC with Apache**
-Edit `.htaccess`:
-
-```apache
-<Files xmlrpc.php>
-    Order Deny,Allow
-    Deny from all
-</Files>
-```
-
-### **Block with Nginx**
-Edit `/etc/nginx/sites-available/default`:
-
-```nginx
-location = /xmlrpc.php {
-    deny all;
-}
-```
-
-Restart Nginx:
-
-```sh
-sudo systemctl restart nginx
-```
-
 ---
 
