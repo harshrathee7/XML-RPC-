@@ -271,7 +271,7 @@ To set up a **test lab for XML-RPC vulnerabilities**, we'll create a local envir
 
 ---
 
-## ** Lab Setup:**
+## **Lab Setup:**
 We'll set up:
 - **WordPress with XML-RPC enabled** (using Docker)
 - **Metasploit, WPScan, and Burp Suite** for exploitation
@@ -413,7 +413,7 @@ run
 
 ---
 
-## ** Mitigations**
+## **Mitigations**
 ### **Disable XML-RPC**
 In `functions.php`:
 
