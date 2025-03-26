@@ -245,7 +245,10 @@ Run the following **cURL command**:
 ```sh
 curl -X POST -d '<methodCall><methodName>wp.getUsersBlogs</methodName></methodCall>' http://example.com/xmlrpc.php
 ```
-
+or
+```sh
+curl -X POST -d '<?xml version="1.0" encoding="iso-8859-1"?><methodCall><methodName>system.listMethods</methodName><params></params></methodCall>' -H 'Content-Type: text/xml' 'https://site-url-example/xmlrpc.php'
+```
 If XML-RPC is enabled, it will return a valid response.  
 
 ---
